@@ -20,7 +20,7 @@
 
     myConnector.getData = function(table, doneCallback) {
         $.getJSON("https://demo.incarnus.com:8850/thirdparty/tableauservice/patientreports/reportingservice/patientreports/getoutpatientfootfall/2016-01-01/2016-10-01", function(resp) {
-            var data = resp.patients,
+            var data = resp.outpatientfootfall,
                 tableData = [];
     
             // Iterate over the JSON object
