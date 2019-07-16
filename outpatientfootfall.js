@@ -13,7 +13,7 @@
 
     $(document).ready(function () {
         $("#submitButton").click(function () {
-            tableau.connectionName = "Patient Reports";
+            tableau.connectionName = "outPatient Footfall";
             tableau.submit();
         });
     });
@@ -59,8 +59,7 @@
     };
     
     myConnector.getSchema = function (schemaCallback) {
-        var cols = [
-        {
+        var cols = [{
             id: "VisitID",
             dataType: tableau.dataTypeEnum.string
         },{
@@ -87,15 +86,13 @@
         },{
             id: "STATE",
             dataType: tableau.dataTypeEnum.string
-        }, 
-        {
+        },{
             id: "CITY",
             dataType: tableau.dataTypeEnum.string
         },{
             id: "PLACE",
             dataType: tableau.dataTypeEnum.string
-        },
-        {
+        },{
             id: "PINCODE",
             dataType: tableau.dataTypeEnum.string
         },{
@@ -107,7 +104,7 @@
         },{
             id: "VisitType",
             dataType: tableau.dataTypeEnum.string
-        }, {
+        },{
             id: "APPOINTMENTTYPE",
             dataType: tableau.dataTypeEnum.string
         },{
@@ -136,4 +133,4 @@
     
         schemaCallback([tableSchema]);
     };
-});
+})();
