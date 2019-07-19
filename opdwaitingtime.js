@@ -20,8 +20,9 @@
 
     myConnector.getData = function(table, doneCallback) {
         $.getJSON("https://demo.incarnus.com:8850/thirdparty/reportingservice/reportingservice/patientreports/getopdwaitingtime/2016-01-01/2016-10-01", function(resp) {
-            var data = resp.opdwaitingtime,
+            var data = resp.opdwaitingtime, 
                 tableData = [];
+            
     
             // Iterate over the JSON object
             for (var i = 0, len = data.length; i < len; i++) {
