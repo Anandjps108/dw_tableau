@@ -19,7 +19,7 @@
     });
 
     myConnector.getData = function(table, doneCallback) {
-        $.getJSON("https://demo.incarnus.com:8850/thirdparty/reportingservice/reportingservice/patientreports/getopdvisittrend/2016-01-01/2016-10-01", function(resp) {
+        $.getJSON("https://demo.incarnus.com:8850/thirdparty/reportingservice/reportingservice/patientreports/getopdvisittrend, function(resp) {
             var data = resp.opdvisittrend,
                 tableData = [];
     
