@@ -13,7 +13,7 @@
 
     $(document).ready(function () {
         $("#submitButton").click(function () {
-            tableau.connectionName = "opdwaiting time";
+            tableau.connectionName = "opdvisit trends";
             tableau.submit();
         });
     });
