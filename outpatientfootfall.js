@@ -70,6 +70,8 @@
         });
     };
     
+    
+    
     myConnector.getSchema = function (schemaCallback) {
         var cols = [{
             id: "VisitID",
