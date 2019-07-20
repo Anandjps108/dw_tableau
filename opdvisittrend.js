@@ -1,28 +1,40 @@
 (function () {
     var myConnector = tableau.makeConnector();
-
-    myConnector.getSchema = function (schemaCallback) {
-
-    };
-
-    myConnector.getData = function (table, doneCallback) {
-
-    };
-
-    tableau.registerConnector(myConnector);
+    const limit = 1000;
+    var pagenumber = 1;
+    tableData = [];
 
     $(document).ready(function () {
         $("#submitButton").click(function () {
-            tableau.connectionName = "opdvisit trends";
-            tableau.submit();
+                tableau.connectionName = "outpatientvisittrend List";
+                tableau.submit();
         });
     });
 
-    myConnector.getData = function(table, doneCallback) {
-        $.getJSON("https://localhost:8080/thirdparty/reportingservice/reportingservice/patientreports/getopdvisittrend/1000/6/2000-01-01, function(resp) {
-            var data = resp.opdvisittrend,
-                tableData = [];
-    
+    myConnector.getData = function (table, doneCallback) {
+        var modifiedat = table.incrementValue
+
+        if (!modifiedat) {
+            modifiedat = "2000-01-01"
+        }
+        else {
+            console.log("modifiedat: " + modifiedat);
+        }
+
+        var queryPath = "https://localhost:8080/thirdparty/tableauservice/patientreports/getopdvisittrend/" + limit + "/" + pagenumber + "/" + modifiedat
+
+        $.getJSON(queryPath, function (resp) {
+            var data = resp.opdvisittrend;
+            var totalrecords = resp.totalrecords;
+
+            if (!modifiedat) {
+                modifiedat = "2000-01-01"
+            }
+            else {
+                console.log("modifiedat: " + modifiedat);
+            }
+
+            
             // Iterate over the JSON object
             for (var i = 0, len = data.length; i < len; i++) {
                 tableData.push({
@@ -32,21 +44,21 @@
                 "HOSPITAL": data[i].hospital,
                 "HOSPITALUNIT":data[i].hospitalunit,
                 "MRN": data[i].mrn,
-                "GENDER":"",
-                "Age": "",                               
-                "PATIENTTYPE": "",       
+                "GENDER":data[i].gender,
+                "Age": data[i].Age,                               
+                "PATIENTTYPE":data[i].PATIENTTYPE,       
                 "COUNTRY": data[i].country,              
                 "STATE":data[i].state,                  
                 "CITY":data[i].city,
-                "PLACE":"", 
+                "PLACE":data[i].PLACE, 
                 "PINCODE": data[i].pincode,
                 "DEPARTMENT": data[i].department,
                 "DOCTOR": data[i].careprovider,
-                "VisitType": "",
+                "VisitType": data[i].visittype,
                 "APPOINTMENTTYPE":"",
                 "Payor": data[i].payor1,
-                "CREATEDBY": "",
-                "MODIFIEDBY": "",
+                "CREATEDBY": data[i].createdby,
+                "MODIFIEDBY": data[i].modifiedby,
                 "CREATEDDATETIME": data[i].createdat,
                 "MODIFIEDDATETIME": data[i].modifiedat
                
@@ -124,13 +136,16 @@
             dataType: tableau.dataTypeEnum.string
         }
     ];
-    
-        var tableSchema = {
-            id: "patientFeed",
-            alias: "Patient reports are listed here...........",
-            columns: cols
+        
+            var tableSchema = {
+                id: "Patients",
+                alias: "outpatientvisittrends are listed here...........",
+                columns: cols,
+                incrementColumnId: "modifieddatetime"
+            };
+        
+            schemaCallback([tableSchema]);
         };
-    
-        schemaCallback([tableSchema]);
-    };
-})();
+
+    tableau.registerConnector(myConnector);
+    })();
