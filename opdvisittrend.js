@@ -29,8 +29,8 @@
                   
                 "VisitID": data[i].visitid,
                 "VISITDATETIME": data[i].startdate,
-                "HOSPITAL": "",
-                "HOSPITALUNIT":"",
+                "HOSPITAL": data[i].hospital,
+                "HOSPITALUNIT":data[i].hospitalunit,
                 "MRN": data[i].mrn,
                 "GENDER":"",
                 "Age": "",                               
