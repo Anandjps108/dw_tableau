@@ -41,24 +41,24 @@
                   
                 "VisitID": data[i].visitid,
                 "VISITDATETIME": data[i].startdate,
-                "HOSPITAL": "",
-                "HOSPITALUNIT":"",
+                "HOSPITAL": data[i].hospital,
+                "HOSPITALUNIT":data[i].hospitalunit,
                 "MRN": data[i].mrn,
-                "GENDER":"",
-                "Age": "",                               
-                "PATIENTTYPE": "",       
+                "GENDER":data[i].gender,
+                "Age": data[i].Age,                               
+                "PATIENTTYPE":data[i].PATIENTTYPE,       
                 "COUNTRY": data[i].country,              
                 "STATE":data[i].state,                  
                 "CITY":data[i].city,
-                "PLACE":"", 
+                "PLACE":data[i].PLACE, 
                 "PINCODE": data[i].pincode,
                 "DEPARTMENT": data[i].department,
                 "DOCTOR": data[i].careprovider,
-                "VisitType": "",
+                "VisitType": data[i].visittype,
                 "APPOINTMENTTYPE":"",
                 "Payor": data[i].payor1,
-                "CREATEDBY": "",
-                "MODIFIEDBY": "",
+                "CREATEDBY": data[i].createdby,
+                "MODIFIEDBY": data[i].modifiedby,
                 "CREATEDDATETIME": data[i].createdat,
                 "MODIFIEDDATETIME": data[i].modifiedat
                
@@ -139,7 +139,7 @@
         
             var tableSchema = {
                 id: "Patients",
-                alias: "Patient reports are listed here...........",
+                alias: "outpatientfootfalls are listed here...........",
                 columns: cols,
                 incrementColumnId: "modifieddatetime"
             };
