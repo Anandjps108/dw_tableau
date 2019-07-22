@@ -80,7 +80,7 @@
             dataType: tableau.dataTypeEnum.string
         },{
             id: "VISITDATETIME",
-            dataType: tableau.dataTypeEnum.string
+            dataType: tableau.dataTypeEnum.datetime
         },{
             id: "HOSPITAL",
             dataType: tableau.dataTypeEnum.string
@@ -134,10 +134,10 @@
             dataType: tableau.dataTypeEnum.string
         },{
             id:"CREATEDDATETIME",
-            dataType: tableau.dataTypeEnum.string
+            dataType: tableau.dataTypeEnum.date
         },{
             id: "MODIFIEDDATETIME",
-            dataType: tableau.dataTypeEnum.string
+            dataType: tableau.dataTypeEnum.date
         }
     ];
         
