@@ -26,6 +26,10 @@
         $.getJSON(queryPath, function (resp) {
             var data = resp.outpatientfootfall;
             var totalrecords = resp.totalrecords;
+            
+             data.sort(function(arg1,arg2){
+              return new Date(arg1.createdat) - new Date(arg2.createdat);
+              });
 
             if (!modifiedat) {
                 modifiedat = "2000-01-01"
