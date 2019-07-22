@@ -6,7 +6,7 @@
 
     $(document).ready(function () {
         $("#submitButton").click(function () {
-                tableau.connectionName = "outpatientfootfall List";
+                tableau.connectionName = "Out patientfootfall List";
                 tableau.submit();
         });
     });
@@ -69,8 +69,6 @@
             doneCallback();
         });
     };
-    
-    
     
     myConnector.getSchema = function (schemaCallback) {
         var cols = [{
@@ -141,7 +139,7 @@
         
             var tableSchema = {
                 id: "Patients",
-                alias: "outpatientfootfalls are listed here...........",
+                alias: "Out patient footfall is listed here...........",
                 columns: cols,
                 incrementColumnId: "modifieddatetime"
             };
