@@ -21,7 +21,7 @@
             console.log("modifiedat: " + modifiedat);
         }
 
-        var queryPath = "https://localhost:8080/thirdparty/tableauservice/patientreports/getopdvisittrend/" + limit + "/" + pagenumber + "/" + modifiedat
+        var queryPath = "https://localhost:8083/thirdparty/tableauservice/patientreports/getopdvisittrend/" + limit + "/" + pagenumber + "/" + modifiedat
 
         $.getJSON(queryPath, function (resp) {
             var data = resp.opdvisittrend;
